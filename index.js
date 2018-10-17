@@ -16,4 +16,4 @@ app.use('/tournaments', tourneys)
 app.use('/register', register)
 
 
-app.listen(process.env.PORT, () => console.log('App is listening on 3000'))
+app.listen(process.env.PORT, () => console.log(`App is listening on ${process.env.PORT}`))
