@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 let express = require('express')
 let app = express()
 let sequelize = require('./db')
-let user = require('./controllers/usercontroller')
+let user = require('./controllers/userController')
 let tourneys = require('./controllers/tourneyController')
 let register = require('./controllers/registerController')
 
