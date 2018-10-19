@@ -14,6 +14,9 @@ app.use(require('./middleware/headers'))
 app.use('/user', user)
 app.use('/tournaments', tourneys)
 app.use('/register', register)
+app.get('/api/hello', (req, res) => {
+    res.send({ express: 'Hello From Express' });
+ })
 
 
 app.listen(process.env.PORT, () => console.log(`App is listening on ${process.env.PORT}`))
