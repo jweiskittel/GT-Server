@@ -2,6 +2,7 @@ const router = require('express').Router()
 const User = require('../db').import('../models/userModel')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+require('dotenv').config()
 
 router.post('/signUp', (req, res) => {
     let fName = req.body.fName
