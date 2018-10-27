@@ -2,7 +2,6 @@ const router = require('express').Router()
 const User = require('../db').import('../models/userModel')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
-require('dotenv').config()
 
 router.post('/signUp', (req, res) => {
     let fName = req.body.fName
@@ -25,7 +24,7 @@ router.post('/signIn', (req, res) => {
             bcrypt.compare(req.body.password, user.password, (err, matches) => {
                 if(matches) {
                     let token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: 60*60*24})
-                    res.json({sessionToken: token, message: 'Login successful'})
+                    res.json({sessionToken: token, message: 'Login successful', user: user.fName})
                 } else {
                     res.send({message: 'Try again'})
                 }

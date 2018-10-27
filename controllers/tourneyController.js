@@ -7,6 +7,11 @@ router.get('/', (req, res) => {
     .then(response => res.status(200).json(response))
 })
 
+router.get('/owned', validateSession, (req,res) => {
+    Tourney.findAll({where: {owner: req.user.id}})
+    .then(response => res.status(200).json(response))
+})
+
 router.get('/register/:id', validateSession, (req, res) => {
     Tourney.findOne({where: {id: req.params.id}})
     .then(response => res.json(response))
